@@ -5,13 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="88e07676-1c2a-4c8c-ad19-603b4935fff0" name="Changes" comment="Primeiro commit com bfs paralelo">
-      <change afterPath="$PROJECT_DIR$/Cliente.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Servidor 2.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BFS PARALELO.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BFS SEQUENCIAL.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Servidor.py" beforeDir="false" afterPath="$PROJECT_DIR$/Servidor 1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cliente.py" beforeDir="false" afterPath="$PROJECT_DIR$/Cliente.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Servidor 1.py" beforeDir="false" afterPath="$PROJECT_DIR$/Servidor 1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Servidor 2.py" beforeDir="false" afterPath="$PROJECT_DIR$/Servidor 2.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,18 +36,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.BFS PARALELO.executor": "Run",
-    "Python.Cliente.executor": "Run",
-    "Python.Main.executor": "Run",
-    "Python.Servidor 1.executor": "Run",
-    "Python.Servidor 2.executor": "Run",
-    "Python.Servidor.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.BFS PARALELO.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Cliente.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Servidor 1.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Servidor 2.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Servidor.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;
   }
-}]]></component>
+}</component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>

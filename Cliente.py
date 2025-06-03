@@ -17,15 +17,31 @@ def enviar_para_servidor(linha, matriz_b, servidor_id):
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         s.connect((host, port))  # Estabelece conexão com o servidor
         pacote = pickle.dumps((linha, matriz_b))  # Serializa a linha de A e matriz B
+
+        # Lógica para enviar dados de tamanho dinâmico
+        tamanho_pacote = len(pacote)
+        s.sendall(tamanho_pacote.to_bytes(4, 'big')) # enviando bytes representando o tamanho do pacote
         s.sendall(pacote)
-        resultado = s.recv(4096)
-        return pickle.loads(resultado)  # Desserializa e retorna o resultado
+
+        # recebe o resultado parcialmente até completar os dados
+        tamanho_resultado = int.from_bytes(s.recv(4), 'big')
+
+        # em Python b'' representa um byte literal vazio, 
+        # pra ser preenchido com dados recebidos via socket
+        resultado_bytes = b''
+        while len(resultado_bytes) < tamanho_resultado:
+            # uso 4096 bytes como base de forma arbitrária, talvez um tamanho
+            # muito pequeno cause overhead de tráfego TCP/IP
+            resultado_bytes += s.recv(min(4096, tamanho_resultado - len(resultado_bytes)))
+        
+        # retorna os bytes desserializados
+        return pickle.loads(resultado_bytes)
 
 
 def main():
     # Gera matrizes com valores aleatórios: A (6x3), B (3x4)
-    A = gerar_matriz(6, 3, aleatorio=True)
-    B = gerar_matriz(3, 9, aleatorio=True)
+    A = gerar_matriz(256, 4096, aleatorio=True)
+    B = gerar_matriz(4096, 64, aleatorio=True)
 
     # Divide a matriz A em linhas individuais para distribuir aos servidores
     linhas_A = dividir_matriz_por_linhas(A)
@@ -54,6 +70,10 @@ def main():
     # Exibe o resultado final e o tempo de execução
     print("\n[Cliente] Resultado da multiplicação A x B:\n", C)
     print(f"[Cliente] Tempo total de execução: {fim - inicio:.4f} segundos")
+    inicio = time.time()
+    np.dot(A,B)
+    fim = time.time()
+    print(f"[Cliente] Tempo de execução serial: {fim - inicio:.4f} segundos")
 
 # Ponto de entrada do programa
 if __name__ == '__main__':
